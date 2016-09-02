@@ -17,7 +17,7 @@ objects:
     type: ClusterIP
     ports:
     - name: web
-      port: 4444
+      port: ${SELENIUM_HUB_PORT}
       targetPort: 4444
       protocol: TCP
     - name: node
@@ -53,7 +53,7 @@ objects:
         value: ${GRID_MAX_SESSION}
       - name: GRID_UNREGISTER_IF_STILL_DOWN_AFTER
         value: ${GRID_UNREGISTER_IF_STILL_DOWN_AFTER}
-      image: selenium/hub
+      image: ddavison/docker-selenium-ephemeral:latest
       name: master
       ports:
       - containerPort: 4444
@@ -63,10 +63,12 @@ objects:
   metadata:
     name: selenium-hub
   spec:
-    host: selenium-grid.apps.example.demo
+    host: ${SELENIUM_HUB_ROUTE}
     to:
       kind: Service
       name: selenium-hub
+    port:
+      targetPort: web
 parameters:
   - name: JAVA_OPTS
     description: Options to pass to the java command
@@ -98,5 +100,10 @@ parameters:
   - name: GRID_UNREGISTER_IF_STILL_DOWN_AFTER
     description: Time to wait before unregistering nodes
     value: "500"
+  - name: SELENIUM_HUB_PORT
+    description: External port used by Selenium Hub to communicate through web
+    value: "8080"
+  - name: SELENIUM_HUB_ROUTE
+    description: Web route to communicate from Openshift with external
 labels:
   selenium-hub: master
