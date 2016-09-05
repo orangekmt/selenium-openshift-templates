@@ -26,7 +26,8 @@ RUN yum install -y centos-release-scl && \
     rpm -V $INSTALL_PKGS && \                                                                                              
     yum clean all -y                                                                                                       
                                                                                                                            
-# RobotFramework installation                                                                                              
+# RobotFramework installation
+RUN pip install --upgrade pip                                                                                              
 RUN pip install robotframework                                                                                             
 RUN pip install robotframework-selenium2library                                                                            
 COPY ./robot_test/ /tmp                                                                                                                         
