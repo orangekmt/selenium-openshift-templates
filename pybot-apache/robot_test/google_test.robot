@@ -18,7 +18,6 @@ ${FF_PROFILE_DIR}   ${EMPTY}
 *** Test Cases ***
 01.Open_Google_fr
     [Tags]    1
-    Run Keyword If	${BROWSER}=='firefox'	Open Browser    ${URL}    browser=${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub    desired_capabilities=platform:${SELENIUM_OS}    ff_profile_dir=${FF_PROFILE_DIR}
-    Run Keyword If	${BROWSER}=='chrome'	Open Browser    ${URL}    browser=${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub    desired_capabilities=platform:${SELENIUM_OS}
+    Open Browser    ${URL}    browser=${BROWSER}    remote_url=http://${SELENIUM_HOST}:${SELENIUM_PORT}/wd/hub    desired_capabilities=platform:${SELENIUM_OS}
     Maximize Browser Window
     Wait Until Page Contains    Google    10
