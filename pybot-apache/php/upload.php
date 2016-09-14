@@ -13,7 +13,7 @@ if (isset($_FILES['myfile']) AND $_FILES['myfile']['error'] == 0)
                 if (in_array($extension_upload, $authorized_extensions))
                 {
                         // We can validate the file and save it permanently
-                        move_uploaded_file($_FILES['myfile']['tmp_name'], 'tests/' . basename($_FILES['myfile']['name']));
+                        move_uploaded_file($_FILES['myfile']['tmp_name'], '/opt/app-root/src/tests/' . basename($_FILES['myfile']['name']));
                         echo "Upload done !";
                 }
         }

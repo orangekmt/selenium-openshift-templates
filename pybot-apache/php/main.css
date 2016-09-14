@@ -1,0 +1,56 @@
+* {
+    font-family : 'Comic Sans MS', sans-serif;
+    font-size : 14px;
+}
+ 
+ul {
+    list-style : none;
+    margin : 0px;
+    padding : 0px;
+    padding-left : 25px;
+}
+ 
+li {
+    padding-left : 20px;
+    line-height : 18px;
+    cursor : pointer;
+}
+ 
+li.folder {
+    background : url("folder.png") no-repeat left center;
+}
+ 
+li.file {
+    background : url("file.png") no-repeat left center;
+}
+
+h1 {
+    padding: 10px 0 10px 0;
+    color: white;
+  text-shadow: 0 2px 2px #fff;
+    text-align: center;
+  font-family: georgia, "trebuchet ms", arial, serif;
+  font-size : 30px;
+  background-color: #00BFFF;
+  border-radius : 10px 10px;
+}
+
+h1 {
+  display: flex;
+}
+h1::before,
+h1::after {
+  display: block; /* IE fix */
+  content: "";
+  flex:1;
+  align-self: center;
+  border-bottom: 1px solid CurrentColor;
+}
+h1::before {margin-right: .3em}
+h1::after {margin-left: .3em}
+
+
+#validation_upload{
+    float: right;
+}
+
