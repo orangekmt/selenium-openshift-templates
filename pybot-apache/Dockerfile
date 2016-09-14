@@ -29,13 +29,16 @@ RUN yum install -y centos-release-scl && \
 # RobotFramework installation
 RUN pip install --upgrade pip                                                                                              
 RUN pip install robotframework                                                                                             
-RUN pip install robotframework-selenium2library    
+RUN pip install robotframework-selenium2library
+RUN pip install robotframework-appiumlibrary
+RUN pip install -U requests
+RUN pip install -U robotframework-requests     
 RUN mkdir /opt/app-root/src/tests && \
     mkdir /opt/app-root/src/results
 COPY ./robot_test/ /opt/app-root/src/tests                                                                                                                        
 RUN	chmod -R a+rw /opt/app-root/src/tests
 RUN	chmod -R a+rw /opt/app-root/src/results
-						
+																																				   
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH                                               
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH                                                                                          
                                                                                                                            
