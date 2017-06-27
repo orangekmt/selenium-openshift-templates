@@ -33,7 +33,7 @@ objects:
             value: ${HUB_PORT_4444_TCP_PORT}
           - name: REMOTE_HOST
             value: ${REMOTE_HOST}
-          image: selenium/node-chrome
+          image: ppersonne/node-chrome-verif
           name: master
           ports:
           - containerPort: 4444

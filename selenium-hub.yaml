@@ -53,7 +53,7 @@ objects:
         value: ${GRID_MAX_SESSION}
       - name: GRID_UNREGISTER_IF_STILL_DOWN_AFTER
         value: ${GRID_UNREGISTER_IF_STILL_DOWN_AFTER}
-      image: ddavison/docker-selenium-ephemeral:latest
+      image: selenium/hub:3.4.0-chromium
       name: master
       ports:
       - containerPort: 4444
